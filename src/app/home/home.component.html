@@ -12,8 +12,10 @@
   
       <form>
         <input type="text" class="txt" name="item" placeholder="Enter text here" [(ngModel)]= "goalText">
-        <br><span>{{goalText}}</span>
         <input type="submit" class="btn" [value]="btnText" (click)= "addItem()">
+          <input type="radio" name="gender" value="male" checked> Male<br>
+          <input type="radio" name="gender" value="female"> Female<br>
+          <input type="radio" name="gender" value="other"> Other
       </form>
     </div>
     <div class="col">
