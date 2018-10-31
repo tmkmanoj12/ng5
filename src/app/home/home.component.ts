@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {trigger,style ,transition,animate,keyframes,query,stagger} from '@angular/animations';
 import {DataService} from '../data.service'
+import request  = require('request')
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -44,10 +46,14 @@ export class HomeComponent implements OnInit {
     this._data.changeGoal(this.goals)
   }
   addItem() {
+    request.get('https://jsonplaceholder.typicode.com/todos/2',function(err,response,body){
+      alert(body)
+    })
     this.goals.push(this.goalText)
     this.goalText = ''
     this.itemCount = this.goals.length
     this._data.changeGoal(this.goals)
+
   }
   removeItem(i){
     this.goals.splice(i,1)
